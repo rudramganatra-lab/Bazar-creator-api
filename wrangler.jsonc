@@ -1,0 +1,17 @@
+{
+  "name": "bazar-creator-api",
+  "main": "creator-worker.js",
+  "compatibility_date": "2026-10-02",
+  "vars": { "ALLOWED_ORIGIN": "https://bazarv5.rudramganatra-2ee.workers.dev", "ADMINS": "PASTE-YOUR-STOCKBAZAR-USERNAME", "MAIN_API": "https://market-iq-api-v7.rudramganatra-2ee.workers.dev" },
+  "d1_databases": [
+    { "binding": "DB", "database_name": "bazar-creator", "database_id": "PASTE-YOUR-D1-DATABASE-ID-HERE" }
+  ],
+  "triggers": { "crons": ["*/10 * * * *"] },
+  "r2_buckets": [{ "binding": "MEDIA", "bucket_name": "bazar-media" }],
+  "ratelimits": [
+    { "name": "AUTH_RL", "namespace_id": "91020271", "simple": { "limit": 10, "period": 60 } },
+    { "name": "POST_RL", "namespace_id": "91020272", "simple": { "limit": 20, "period": 60 } },
+    { "name": "CHAT_RL", "namespace_id": "91020273", "simple": { "limit": 30, "period": 60 } },
+    { "name": "GAME_RL", "namespace_id": "91020274", "simple": { "limit": 60, "period": 60 } }
+  ]
+}
